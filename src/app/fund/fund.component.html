@@ -1,0 +1,51 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="/src/styles.css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <span class="navbar-brand mb-0 text-primary h1">Portfolio</span>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto justify-content-between">
+        <li class="nav-item">
+          <a class="nav-link text-primary" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" routerLink="/stocks">Stocks</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-primary" routerLink="/fund">Mutual Funds</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" routerLink="/net-worth">Assets</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<br>
+<div class="container" style="justify-content: center;">
+  <form [formGroup]="fundform" (ngSubmit)="OnSearch()">
+    <input type="text" id="mutualFundName" class="fadeIn second" name="mutualFundName"  formControlName="mutualFundName"  placeholder="MutualFundName">
+    <br>
+    <br>
+    <input type="submit" class="fadeIn fourth" value="Search" class="btn btn-primary" [disabled]="!fundform.valid">
+</form>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Mutual Fund Id</th>
+      <th>Mutual Fund Name</th>
+      <th>Mutual Fund Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fund of fundlist" id="clear">
+      <td>{{fund.mutualFundId}}</td>
+      <td>{{fund.mutualFundName}}</td>
+      <td>{{fund.mutualFundValue}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

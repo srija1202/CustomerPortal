@@ -1,0 +1,63 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="/src/styles.css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <span class="navbar-brand mb-0 text-primary h1">Portfolio</span>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto justify-content-between">
+        <li class="nav-item ">
+          <a class="nav-link text-primary" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" routerLink="/stocks">Stocks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" routerLink="/fund">Mutual Funds</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link text-primary" routerLink="/net-worth">Assets</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<br>
+<div class="container" *ngIf=" gettotal()"><h3>Your networth is {{networth}}</h3></div>
+<br>
+<h3 >Mutual Funds</h3>
+<br>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Mutual Fund Name</th>
+      <th>Mutual Fund Units</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fund of mutuallist">
+      <td>{{fund.mutualFundName}}</td>
+      <td>{{fund.mutualFundUnits}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<h3 >Stock Price</h3>
+<br>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Stock Name</th>
+      <th> Stock Count </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let stock of stocklist">
+      <td>{{stock.stockName}}</td>
+      <td>{{stock.stockCount}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

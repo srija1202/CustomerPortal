@@ -1,0 +1,34 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h2>Login</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="number" id="portfolioId" class="fadeIn second" name="portfolioId"  formControlName="portfolioId"  placeholder="portfolioId">
+      <small class="form-text text-muted" 
+        *ngIf="loginForm.controls['portfolioId'].touched && loginForm.controls['portfolioId'].errors?.['required']">
+          Please enter Portfolio Id.!
+      </small>
+      <br>
+      <br>
+      <input type="password" id="password" class="fadeIn third" name="password" formControlName="password" placeholder="Password">
+      <small class="form-text text-muted" 
+        *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']">
+          Please enter password.!
+      </small>
+      <br>
+      <br>
+      <input type="submit" class="fadeIn fourth" value="Log In" class="btn btn-primary" [disabled]="!loginForm.valid">
+    </form>
+  </div>
+</div>

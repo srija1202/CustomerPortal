@@ -1,0 +1,51 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="/src/styles.css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <span class="navbar-brand mb-0 text-primary h1">Portfolio</span>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto justify-content-between">
+        <li class="nav-item">
+          <a class="nav-link text-primary" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link text-primary" routerLink="/stocks">Stocks</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" routerLink="/fund">Mutual Funds</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-primary" routerLink="/net-worth">Assets</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+<br>
+<div class="container" style="justify-content: center;">
+  <form [formGroup]="stockform" (ngSubmit)="OnSearch()">
+    <input type="text" id="stockname" class="fadeIn second" name="stockname"  formControlName="stockname"  placeholder="StockName">
+    <br>
+    <br>
+    <input type="submit" class="fadeIn fourth" value="Search" class="btn btn-primary" [disabled]="!stockform.valid">
+</form>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Stock Id</th>
+      <th>Stock Name</th>
+      <th>Stock Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fund of stocklist">
+      <td>{{fund.stockId}}</td>
+      <td>{{fund.stockName}}</td>
+      <td>{{fund.stockValue}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
